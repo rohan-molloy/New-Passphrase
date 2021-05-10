@@ -1,4 +1,3 @@
-
 <#
 .SYNOPSIS
     Generate a passphrase from a wordlist
@@ -58,7 +57,7 @@ function New-Passphrase
     PROCESS
     {
        if($AsSecureString) {
-        $password=(($WordList | Get-Random -Count $Words) -join $Delimiter)+$Delimiter+(Get-Random -Minimum $RandomNumberMin -Maximum $RandomNumberMax) | ConvertTo-SecureString
+        $password=(($WordList | Get-Random -Count $Words) -join $Delimiter)+$Delimiter+(Get-Random -Minimum $RandomNumberMin -Maximum $RandomNumberMax) | ConvertTo-SecureString -Force -AsPlainText
        } else {
         $password=(($WordList | Get-Random -Count $Words) -join $Delimiter)+$Delimiter+(Get-Random -Minimum $RandomNumberMin -Maximum $RandomNumberMax)
        }
